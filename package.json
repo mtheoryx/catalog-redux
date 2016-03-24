@@ -1,0 +1,29 @@
+{
+  "name": "catalog-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "author": "David R Poindexter III <drpoindexter@gmail.com> (http://vcard.davidrpoindexter.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "flux": "2.1.1",
+    "react": "0.14.7",
+    "react-dom": "0.14.7",
+    "react-router": "2.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.7.4",
+    "babel-eslint": "5.0.0",
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015": "6.6.0",
+    "babel-preset-react": "6.5.0",
+    "eslint": "2.4.0",
+    "eslint-plugin-react": "4.2.3",
+    "estraverse": "4.2.0",
+    "estraverse-fb": "1.3.1",
+    "webpack": "1.12.14"
+  }
+}
