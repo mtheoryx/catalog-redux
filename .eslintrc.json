@@ -28,10 +28,7 @@
             "error",
             "single"
         ],
-        "semi": [
-            "error",
-            "always"
-        ],
+        "semi": 0,
         "comma-dangle": [2, "only-multiline"]
     }
 }

@@ -9,7 +9,7 @@ export default {
     },
     removeItem( item ) {
         dispatch({
-            actionType: AppConstants.DECREASE_ITEM, item
+            actionType: AppConstants.REMOVE_ITEM, item
         });
     },
     increaseItem( item ) {

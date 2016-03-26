@@ -1,6 +1,6 @@
-import { dispatch, register } from '../dispatchers/app-dispatcher';
+import {dispatch, register} from '../dispatchers/app-dispatcher';
 import AppConstants from '../constants/app-constants';
-import { EventEmitter } from 'events';
+import {EventEmitter} from 'events';
 
 const CHANGE_EVENT = 'change';
 
@@ -8,11 +8,11 @@ var _catalog = [];
 
 for (let i = 1; i < 9; i++) {
     _catalog.push({
-        'id': `Widget ${i}`,
-        'title': `Widget #${i}`,
-        'summary': `Widget #${i} is a great widget!`,
-        'description': `Lorem ipsum dolor sit Widget #${i}.`,
-        'cost': `$${i}.99`
+        'id': 'Widget' + i,
+        'title': 'Widget #' + i,
+        'summary': 'A great widget',
+        'description': 'Lorem ipsum dolor sit amet.',
+        'cost': i
     });
 }
 
@@ -23,22 +23,20 @@ const _removeItem = (item) => {
 };
 
 const _findCartItem = (item) => {
-    return _cartItems.find(cartItem => cartItem.id === item.id);
+    return _cartItems.find(cartItem => cartItem.id === item.id)
 };
 
 const _increaseItem = (item) => item.qty++;
 
 const _decreaseItem = (item) => {
     item.qty--;
-
     if (item.qty === 0) {
-        _removeItem(item);
+        _removeItem(item)
     }
 };
 
 const _addItem = (item) => {
     const cartItem = _findCartItem(item);
-
     if (!cartItem) {
         _cartItems.push(Object.assign({qty: 1}, item));
     }
@@ -52,38 +50,37 @@ const _cartTotals = (qty = 0, total = 0) => {
         qty += cartItem.qty;
         total += cartItem.qty * cartItem.cost;
     });
-
     return {qty, total};
 };
 
 const AppStore = Object.assign(EventEmitter.prototype, {
-    emitChange() {
-        this.emit(CHANGE_EVENT);
+    emitChange(){
+        this.emit(CHANGE_EVENT)
     },
 
-    addChangeListener(callback) {
-        this.on(CHANGE_EVENT, callback);
+    addChangeListener(callback){
+        this.on(CHANGE_EVENT, callback)
     },
 
-    removeChangeListener(callback) {
-        this.removeListener(CHANGE_EVENT, callback);
+    removeChangeListener(callback){
+        this.removeListener(CHANGE_EVENT, callback)
     },
 
-    getCart() {
+    getCart(){
         return _cartItems;
     },
 
-    getCatalog() {
+    getCatalog(){
         return _catalog.map(item => {
-            return Object.assign({}, _cartItems.find(cItem => cItem.id === item.id));
-        });
+            return Object.assign({}, item, _cartItems.find(cItem => cItem.id === item.id))
+        })
     },
 
     getCartTotals(){
         return _cartTotals();
     },
 
-    dispatcherIndex: register((action) => {
+    dispatcherIndex: register(function (action) {
         switch (action.actionType) {
         case AppConstants.ADD_ITEM:
             _addItem(action.item);
@@ -91,9 +88,11 @@ const AppStore = Object.assign(EventEmitter.prototype, {
         case AppConstants.REMOVE_ITEM:
             _removeItem(action.item);
             break;
+
         case AppConstants.INCREASE_ITEM:
             _increaseItem(action.item);
             break;
+
         case AppConstants.DECREASE_ITEM:
             _decreaseItem(action.item);
             break;
@@ -101,7 +100,7 @@ const AppStore = Object.assign(EventEmitter.prototype, {
 
         AppStore.emitChange();
 
-    }),
+    })
 });
 
-export default AppStore;
+export default AppStore
