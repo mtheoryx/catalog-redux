@@ -1,6 +1,6 @@
-import React from 'react';
-import CartButton from './app-cart-button';
-import AppActions from '../actions/app-actions';
+import React from 'react';                          // eslint-disable-line no-unused-vars
+import CartButton from './app-cart-button';         // eslint-disable-line no-unused-vars
+import AppActions from '../../actions/app-actions';
 
 export default (props) => {
     return (

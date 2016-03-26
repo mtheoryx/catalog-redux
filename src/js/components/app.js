@@ -1,7 +1,6 @@
 import React from 'react';
-import AppActions from '../actions/app-actions';
-import Catalog from './app-catalog';
-import Cart from './app-cart';
+import Catalog from './catalog/app-catalog'; // eslint-disable-line no-unused-vars
+import Cart from './cart/app-cart';          // eslint-disable-line no-unused-vars
 
 export default class App extends React.Component {
     render() {

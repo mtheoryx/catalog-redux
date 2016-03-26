@@ -1,7 +1,7 @@
-import React from 'react';
-import AppStore from '../stores/app-store';
-import CatalogItem from './app-catalog-item';
-import StoreWatchMixin from '../mixins/StoreWatchMixin';
+import React from 'react';                          // eslint-disable-line no-unused-vars
+import AppStore from '../../stores/app-store';
+import CatalogItem from './app-catalog-item';       // eslint-disable-line no-unused-vars
+import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 
 //State callback for HOC
 function getCatalog() {

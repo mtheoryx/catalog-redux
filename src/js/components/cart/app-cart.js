@@ -1,7 +1,7 @@
-import React from 'react';
-import AppStore from '../stores/app-store';
-import AppCartItem from './app-cart-item';
-import StoreWatchMixin from '../mixins/StoreWatchMixin';
+import React from 'react';                      // eslint-disable-line no-unused-vars
+import AppStore from '../../stores/app-store';
+import AppCartItem from './app-cart-item';      // eslint-disable-line no-unused-vars
+import StoreWatchMixin from '../../mixins/StoreWatchMixin';
 
 //State callback for HOC
 const cartItems = () => {
