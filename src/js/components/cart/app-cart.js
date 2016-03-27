@@ -2,6 +2,7 @@ import React from 'react';                      // eslint-disable-line no-unused
 import AppStore from '../../stores/app-store';
 import AppCartItem from './app-cart-item';      // eslint-disable-line no-unused-vars
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
+import { Link } from 'react-router';
 
 //State callback for HOC
 const cartItems = () => {
@@ -44,6 +45,7 @@ const Cart = ( props ) => {
                 </tr>
                 </tfoot>
             </table>
+            <Link to="/">Continue Shopping</Link>
         </div>
     );
 

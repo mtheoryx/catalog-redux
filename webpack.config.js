@@ -4,6 +4,7 @@ module.exports = {
         path: './dist',
         filename: 'bundle.js',
         publicPath: '/',
+        devtool: 'source-map'
     },
     devServer: {
         inline: true,
